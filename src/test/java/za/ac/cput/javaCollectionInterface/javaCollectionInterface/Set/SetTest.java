@@ -1,21 +1,27 @@
 package za.ac.cput.javaCollectionInterface.javaCollectionInterface.Set;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.LinkedHashSet;
 
-public class Set {
+import static org.junit.jupiter.api.Assertions.*;
+
+class SetTest {
+
     LinkedHashSet Surname = new LinkedHashSet();
 
-    public void addSurname() {
+    @Test
+    public void testSurname(){
         Surname.add("X");
         Surname.add("o");
         Surname.add("l");
         Surname.add("a");
         Surname.add("n");
         Surname.add("i");
-        System.out.println(Surname);
+        assertEquals(6,Surname.size());
     }
-
-    public void removeSurname() {
+    @Test
+    public void removeLastAlphab(){
         Surname.add("X");
         Surname.add("o");
         Surname.add("l");
@@ -23,10 +29,9 @@ public class Set {
         Surname.add("n");
         Surname.add("i");
         Surname.remove("i");
-        System.out.println(Surname);
-
+        assertEquals(5,Surname.size());
     }
-
+    @Test
     public void findStudent() {
         Surname.add("X");
         Surname.add("o");
@@ -34,13 +39,6 @@ public class Set {
         Surname.add("a");
         Surname.add("n");
         Surname.add("i");
-        System.out.println(Surname.contains("X"));
-    }
-
-    public static void main(String[] args) {
-        Set results = new Set();
-        results.addSurname();
-        results.removeSurname();
-        results.findStudent();
+        assertTrue(Surname.contains("X"));
     }
 }
